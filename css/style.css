@@ -5,3 +5,42 @@
   'GRAD' 0,
   'opsz' 24
 }
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body , html {
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+section {
+  background: linear-gradient(0deg, #616161 0%,#6b6b6b 100%);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.671);
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+td:hover {
+  background-color: #000000;
+  transition: background-color .2s ease-in-out;
+}
+
+#resultado{
+  background: linear-gradient(90deg, #61b3ff 0%, #23a7ff8f 100%);
+}

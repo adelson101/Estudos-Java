@@ -11,6 +11,9 @@
     <section>
         <table>
             <tr>
+                <td id="resultado" colspan="4"><output id="iresultado">0</output></td>
+            </tr>
+            <tr>
                 <td>%</td>
                 <td onclick="resetAll()">CE</td>
                 <td>C</td>
@@ -51,59 +54,51 @@
     <script>
 
         const guardnumeros = [];
-        const guardConta = [];
+        let numeros = [];
         let guardCalc;
         let guardResult;
+        let DigitadoResultado = [];
         
         function numerosGuard(num){
-            guardnumeros.push(num);
-            window.alert(guardnumeros);
+            guardnumeros.push(num); //Guarda o Numero
+            updateResultado('adicionar',num.toString()); //Update para guardar o numero na tela
         }
 
         function numerosRemove(){
-            guardnumeros.splice(guardnumeros.length-1);
-            window.alert(guardnumeros);
+            guardnumeros.splice(guardnumeros.length-1); //Remove o ultimo numero
+            updateResultado('remover','0');    //Remove o ultimo numero da tela
         }
 
         function Conta(soma){
-            proxNum();
-            guardCalc = soma;
-            
-            if(guardConta.length>1){
-                Somar(soma);
-            }
+            numeros.push(Number(guardnumeros.join()));
         }
 
         function resetConta(value){
-            guardConta.splice(0,guardConta.length);
-            guardConta.push(value);
+            updateResultado('resultado',value.toString()); //Update na tela guardando o resultado e aparecendo na tela
+            numero1 = value; //Guarda o resultado no primeiro GuardConta para ser reutilizado
+            numero2 = null;
         }
 
         function resultado(){
-            guardResult=guardConta[0];
-            if(guardConta.length>1){
-                proxNum();
+            numero2 = Number(guardnumeros.join(''));
+            if(numero2!=null){
                 Somar(guardCalc);
             }
         }
 
-        function proxNum(){
-            guardConta.push(Number(guardnumeros.join('')));
-            guardnumeros.splice(0,guardnumeros.length);
-        }
-
         function Somar(soma){
             if(soma=='+'){
-                    guardResult=guardConta[0]+guardConta[1];
+                    guardResult=numero1+numero2; //+
+                    window.alert(guardResult);
                     resetConta(guardResult);
                 }else if(soma=='-'){
-                    guardResult=guardConta[0]-guardConta[1];
+                    guardResult=numero1-numero2; //-
                     resetConta(guardResult);
                 }else if(soma=='*'){
-                    guardResult=guardConta[0]*guardConta[1];
+                    guardResult=numero1*numero2; //*
                     resetConta(guardResult);
                 }else if(soma=='/'){
-                    guardResult=guardConta[0]/guardConta[1];
+                    guardResult=numero1/numero2; ///
                     resetConta(guardResult);
                 }
         }
@@ -113,6 +108,25 @@
             guardConta.splice(0,guardConta.length);
             guardCalc = 0;
             guardResult = 0; 
+        }
+
+        function updateResultado(natureza,Digitar){
+            if(natureza=='adicionar'){
+                DigitadoResultado.push(Digitar);
+            }
+            else if(natureza=='remover'){
+                DigitadoResultado.splice(DigitadoResultado.length-1)
+            }else if(natureza=='resultado'){
+                DigitadoResultado.splice(0,DigitadoResultado.length)
+                DigitadoResultado.push(Digitar);
+            }
+
+            if(DigitadoResultado.length==0){
+                iresultado.innerHTML = 0;
+            }else{
+                iresultado.innerHTML = DigitadoResultado.join('');
+            }
+
         }
     </script>
 </body>

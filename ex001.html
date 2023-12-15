@@ -4,12 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section>
+        <table>
+            <tr>
+                <td>%</td>
+                <td onclick="resetAll()">CE</td>
+                <td>C</td>
+                <td onclick="numerosRemove()"><span class="material-symbols-outlined">backspace</span></td>
+            </tr>
+            <tr>
+                <td>1/x</td>
+                <td>x²</td>
+                <td>^</td>
+                <td onclick="Conta('/')">/</td>
+            </tr>
+            <tr>
+                <td onclick="numerosGuard(7)">7</td>
+                <td onclick="numerosGuard(8)">8</td>
+                <td onclick="numerosGuard(9)">9</td>
+                <td onclick="Conta('*')">*</td>
+            </tr>
+            <tr>
+                <td onclick="numerosGuard(4)">4</td>
+                <td onclick="numerosGuard(5)">5</td>
+                <td onclick="numerosGuard(6)">6</td>
+                <td onclick="Conta('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="numerosGuard(1)">1</td>
+                <td onclick="numerosGuard(2)">2</td>
+                <td onclick="numerosGuard(3)">3</td>
+                <td onclick="Conta('+')">+</td>
+            </tr>
+            <tr>
+                <td>+/-</td>
+                <td onclick="numerosGuard(0)">0</td>
+                <td>,</td>
+                <td onclick="resultado()">=</td>
+            </tr>
+        </table>
+    </section>
     <script>
-        window.alert('Olá,mundo!');
-        window.confirm('esta gostando?');
-        window.prompt('qual o seu nome?');
+
+        const guardnumeros = [];
+        const guardConta = [];
+        let guardCalc;
+        let guardResult;
+        
+        function numerosGuard(num){
+            guardnumeros.push(num);
+            window.alert(guardnumeros);
+        }
+
+        function numerosRemove(){
+            guardnumeros.splice(guardnumeros.length-1);
+            window.alert(guardnumeros);
+        }
+
+        function Conta(soma){
+            proxNum();
+            guardCalc = soma;
+            
+            if(guardConta.length>1){
+                Somar(soma);
+            }
+        }
+
+        function resetConta(value){
+            guardConta.splice(0,guardConta.length);
+            guardConta.push(value);
+        }
+
+        function resultado(){
+            guardResult=guardConta[0];
+            if(guardConta.length>1){
+                proxNum();
+                Somar(guardCalc);
+            }
+        }
+
+        function proxNum(){
+            guardConta.push(Number(guardnumeros.join('')));
+            guardnumeros.splice(0,guardnumeros.length);
+        }
+
+        function Somar(soma){
+            if(soma=='+'){
+                    guardResult=guardConta[0]+guardConta[1];
+                    resetConta(guardResult);
+                }else if(soma=='-'){
+                    guardResult=guardConta[0]-guardConta[1];
+                    resetConta(guardResult);
+                }else if(soma=='*'){
+                    guardResult=guardConta[0]*guardConta[1];
+                    resetConta(guardResult);
+                }else if(soma=='/'){
+                    guardResult=guardConta[0]/guardConta[1];
+                    resetConta(guardResult);
+                }
+        }
+
+        function resetAll(){
+            guardnumeros.splice(0,guardnumeros.length);
+            guardConta.splice(0,guardConta.length);
+            guardCalc = 0;
+            guardResult = 0; 
+        }
     </script>
 </body>
 </html>

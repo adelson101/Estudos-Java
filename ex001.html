@@ -56,7 +56,6 @@
         const guardnumeros = [];
         let numeros = [];
         let guardCalc;
-        let guardResult;
         let DigitadoResultado = [];
         
         function numerosGuard(num){
@@ -74,12 +73,10 @@
             if(numeros[0]==undefined){
                 numeros[0] = Number(guardnumeros.join(''));
                 guardnumeros.splice(0,guardnumeros.length);
-                window.alert(numeros[0]);
                 updateResultado('soma',soma);
             }else if(numeros[0]!=undefined && numeros[1]!=undefined){
                 numeros[1] = Number(guardnumeros.join(''));
                 guardnumeros.splice(0,guardnumeros.length);
-                window.alert(numeros[1]);
                 updateResultado('soma',soma);
             }
 
@@ -97,9 +94,11 @@
         }
 
         function resultado(){
-            if(numeros[0]!=undefined && numeros[1]==undefined){
+            if(numeros[1]!=undefined){
                 resetConta(numeros[0]);
             }else{
+                numeros[1] = Number(guardnumeros.join(''));
+                guardnumeros.splice(0,guardnumeros.length);
                 Somar(guardCalc);
             }
         }

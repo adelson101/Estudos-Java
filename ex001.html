@@ -70,35 +70,52 @@
         }
 
         function Conta(soma){
-            numeros.push(Number(guardnumeros.join()));
+            guardCalc=soma;
+            if(numeros[0]==undefined){
+                numeros[0] = Number(guardnumeros.join(''));
+                guardnumeros.splice(0,guardnumeros.length);
+                window.alert(numeros[0]);
+                updateResultado('soma',soma);
+            }else if(numeros[0]!=undefined && numeros[1]!=undefined){
+                numeros[1] = Number(guardnumeros.join(''));
+                guardnumeros.splice(0,guardnumeros.length);
+                window.alert(numeros[1]);
+                updateResultado('soma',soma);
+            }
+
+            if(numeros[0]!=undefined && numeros[1]!=undefined){
+                resultado();
+            }
+            
+
         }
 
         function resetConta(value){
             updateResultado('resultado',value.toString()); //Update na tela guardando o resultado e aparecendo na tela
-            numero1 = value; //Guarda o resultado no primeiro GuardConta para ser reutilizado
-            numero2 = null;
+            numeros[0] = value; //Guarda o resultado no primeiro GuardConta para ser reutilizado
+            numeros[1] = 0;
         }
 
         function resultado(){
-            numero2 = Number(guardnumeros.join(''));
-            if(numero2!=null){
+            if(numeros[0]!=undefined && numeros[1]==undefined){
+                resetConta(numeros[0]);
+            }else{
                 Somar(guardCalc);
             }
         }
 
         function Somar(soma){
             if(soma=='+'){
-                    guardResult=numero1+numero2; //+
-                    window.alert(guardResult);
+                    guardResult=numeros[0]+numeros[1]; //+
                     resetConta(guardResult);
                 }else if(soma=='-'){
-                    guardResult=numero1-numero2; //-
+                    guardResult=numeros[0]-numeros[1]; //-
                     resetConta(guardResult);
                 }else if(soma=='*'){
-                    guardResult=numero1*numero2; //*
+                    guardResult=numeros[0]*numeros[1]; //*
                     resetConta(guardResult);
                 }else if(soma=='/'){
-                    guardResult=numero1/numero2; ///
+                    guardResult=numeros[0]/numeros[1]; ///
                     resetConta(guardResult);
                 }
         }
@@ -113,8 +130,13 @@
         function updateResultado(natureza,Digitar){
             if(natureza=='adicionar'){
                 DigitadoResultado.push(Digitar);
-            }
-            else if(natureza=='remover'){
+            }else if(natureza=='soma'){
+                if(DigitadoResultado[DigitadoResultado.length-1]=='+' || DigitadoResultado[DigitadoResultado.length-1]=='-' || DigitadoResultado[DigitadoResultado.length-1]=='*' || DigitadoResultado[DigitadoResultado.length-1]=='/'){
+                    DigitadoResultado[DigitadoResultado.length-1]=Digitar;
+                }else{
+                    DigitadoResultado.push(Digitar);
+                }
+            }else if(natureza=='remover'){
                 DigitadoResultado.splice(DigitadoResultado.length-1)
             }else if(natureza=='resultado'){
                 DigitadoResultado.splice(0,DigitadoResultado.length)

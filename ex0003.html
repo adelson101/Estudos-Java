@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="txt1" id="itxt1"> +
+    <input type="number" name="txt2" id="itxt2">
+    <input type="button" value="Somar" onclick="somar()">
+    <div id="Resultado">Resultado:</div>
+    <script>
+        function somar(){
+            let txt1 = document.getElementById('itxt1');
+            let txt2 = document.getElementById('itxt2');
+            let soma = Number(txt1.value) + Number(txt2.value);
+            document.getElementById('Resultado').innerHTML = `Resultado: ${soma}`;
+        }
+    </script>
+</body>
+</html>

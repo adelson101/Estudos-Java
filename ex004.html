@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label >Velocidade do Carro: <input type="number" name="txtVel" id="itxtVel">Km/h</label>
+        <input type="button" value="verificar" onclick="verificar()">
+        <p id="resultado"></p>
+        <script>
+            function verificar(){
+                const vel = document.getElementById('itxtVel');
+                if(vel.value>60){
+                    document.getElementById('resultado').innerHTML = `<p>Sua velocidade foi: ${vel.value-60}<strong> acima do permitido</strong></p>`;
+                    document.getElementById('resultado').innerHTML += `<p>Diriga com segurança.</p>`
+                }else {
+                    document.getElementById('resultado').innerHTML = '<p><strong>Sem Multas</strong></p>'
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

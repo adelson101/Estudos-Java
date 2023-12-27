@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Qual pais você mora? <input type="text" name="pais" id="ipais"></p>
+    <input type="button" value="resultado" onclick="pais('ipais','Resultado')">
+    <p id="Resultado">Resultado:</p>
+
+    <script>
+        function GetId(name){
+            return document.getElementById(name);
+        }
+
+        function pais(namePais,resultado){
+            if((GetId(namePais).value!='Brasil') && (GetId(namePais).value!='brasil')) {
+                GetId(resultado).innerHTML = `Resultado: <span>Você e estrangeiro!</span>`;
+            }else{
+                GetId(resultado).innerHTML = 'Resultado: <span>Você e brasileiro</span>';
+            }
+        }
+    </script>
+</body>
+</html>

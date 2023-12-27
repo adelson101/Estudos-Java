@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgb(41, 152, 255);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #iNascimento {
+            border-radius: 50px;
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.61);
+        }
+
+        section{
+            display: inline-block;
+            padding: 2rem 1rem;
+            width: 500px;
+            background-color: white;
+            border-radius: 5px;
+
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: white;
+
+            font-size: 2rem;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 1rem 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            padding: 7px 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+            margin-top: 1rem;
+            color: white;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <p><label for="iNascimento">Data de Nascimento: <input type="number" name="Nascimento" id="iNascimento"></label></p>
+        <p>Sexo:
+                <input type="radio" name="sexo" id="iMasculino" value="Homem"><label for="iMasculino"> Masculino</label>
+                <input type="radio" name="sexo" id="iFeminino" value="Mulher"><label for="iFeminino"> Feminino</label>
+        </p>
+        <input type="button" value="verificar" onclick="verificar()">
+        <p id="resultado-txt">Preencha os dados acima para ver o resultado!</p>
+        <div id="resultado"></div>
+    </section>
+    <footer>@CursoemVideo</footer>
+
+    <script>
+        function verificar(){
+            const data = new Date();
+            const idade = data.getFullYear()-Number(document.getElementById('iNascimento').value);
+                if (document.getElementsByName('sexo')[0].checked)
+                {
+                    if(idade>=50){
+                        document.getElementById('resultado').style.backgroundImage = "url('idoso.png')";   
+                    }
+                    else if(idade>=18){
+                        document.getElementById('resultado').style.backgroundImage = "url('homem.png')";   
+                    }
+                    else if(idade>=0){
+                        document.getElementById('resultado').style.backgroundImage = "url('garoto.png')";   
+                    }
+                    else
+                    {
+                        window.alert('Verificar se adicionou uma idade correta');
+                    }
+                    document.getElementById('resultado-txt').innerHTML = `Detectado ${sexo} que tem ${idade} Anos.`;
+                }
+
+                else if (document.getElementsByName('sexo')[1].checked){
+                    if(idade>=50){
+                        document.getElementById('resultado').style.backgroundImage = "url('idosa.png')";   
+                    }
+                    else if(idade>=18){
+                        document.getElementById('resultado').style.backgroundImage = "url('mulher.png')";   
+                    }
+                    else if(idade>=0){
+                        document.getElementById('resultado').style.backgroundImage = "url('garota.png')";   
+                    }
+                    else
+                    {
+                        window.alert('Verificar se adicionou uma idade correta');
+                    }
+                    document.getElementById('resultado-txt').innerHTML = `Detectado ${sexo} que tem ${idade} Anos.`;
+                }
+                else {
+                    window.alert('Digite os dados.')
+                }
+
+                document.getElementById('resultado-txt').innerHTML = document.getElementsByName('sexo')[0].value;
+            }
+    </script>
+</body>
+</html>

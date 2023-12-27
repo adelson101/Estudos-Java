@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,17 +21,26 @@
         #iNascimento {
             border-radius: 50px;
             padding: 5px;
-            border: 1px solid rgba(0, 0, 0, 0.61);
+            border: 1px solid rgba(0, 0, 0, 0.486);
+            display: block;
+            margin-top: 0.3rem;
+            padding: 0.5rem;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         section{
-            display: inline-block;
-            padding: 2rem 1rem;
-            width: 500px;
-            background-color: white;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 300px;
+            padding: 2rem;
+            background-color: rgb(255, 255, 255);
             border-radius: 5px;
 
-            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.37);
+            text-align: center;
         }
 
         h1 {
@@ -45,7 +54,6 @@
 
         p {
             font-size: 1.1rem;
-            padding: 7px 0;
             font-family: Arial, Helvetica, sans-serif;
         }
 
@@ -53,6 +61,36 @@
             margin-top: 1rem;
             color: white;
             font-style: italic;
+        }
+
+        #resultado {
+            display: none;
+            background-position: center;
+            background-size: cover;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        .sexo {
+            display: block;
+            font-size: 1.1rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sexo input[class=iMasculino]:checked {
+            background-color: blue;
+        }
+
+        .button{
+            padding: 7px 65px;
+            border-radius: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            background-color: rgb(41, 152, 255);
+            color: white;
         }
 
     </style>
@@ -64,10 +102,12 @@
     <section>
         <p><label for="iNascimento">Data de Nascimento: <input type="number" name="Nascimento" id="iNascimento"></label></p>
         <p>Sexo:
-                <input type="radio" name="sexo" id="iMasculino" value="Homem"><label for="iMasculino"> Masculino</label>
-                <input type="radio" name="sexo" id="iFeminino" value="Mulher"><label for="iFeminino"> Feminino</label>
+                <div class="sexo">
+                    <input type="radio" name="sexo" id="iMasculino" value="Homem"><label for="iMasculino" class="iMasculino"> Masculino </label>
+                    <input type="radio" name="sexo" id="iFeminino" value="Mulher"><label for="iFeminino" class="iFeminino"> Feminino </label>
+                </div>
         </p>
-        <input type="button" value="verificar" onclick="verificar()">
+        <input type="button" value="verificar" onclick="verificar()" class="button">
         <p id="resultado-txt">Preencha os dados acima para ver o resultado!</p>
         <div id="resultado"></div>
     </section>
@@ -77,45 +117,47 @@
         function verificar(){
             const data = new Date();
             const idade = data.getFullYear()-Number(document.getElementById('iNascimento').value);
-                if (document.getElementsByName('sexo')[0].checked)
+
+            if (document.getElementsByName('sexo')[0].checked && Number(document.getElementById('iNascimento').value)!=0)
                 {
+                    document.getElementById('resultado').style.display = 'block';
                     if(idade>=50){
-                        document.getElementById('resultado').style.backgroundImage = "url('idoso.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/idoso.png')";   
                     }
                     else if(idade>=18){
-                        document.getElementById('resultado').style.backgroundImage = "url('homem.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/homem.png')";   
                     }
                     else if(idade>=0){
-                        document.getElementById('resultado').style.backgroundImage = "url('garoto.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/garoto.png')";   
                     }
                     else
                     {
                         window.alert('Verificar se adicionou uma idade correta');
                     }
-                    document.getElementById('resultado-txt').innerHTML = `Detectado ${sexo} que tem ${idade} Anos.`;
+                    document.getElementById('resultado-txt').innerHTML = `Detectado Homem que tem ${idade} Anos.`;
                 }
 
-                else if (document.getElementsByName('sexo')[1].checked){
+                else if (document.getElementsByName('sexo')[1].checked && Number(document.getElementById('iNascimento').value)!=0){
+                    document.getElementById('resultado').style.display = 'block';
                     if(idade>=50){
-                        document.getElementById('resultado').style.backgroundImage = "url('idosa.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/idosa.png')";   
                     }
                     else if(idade>=18){
-                        document.getElementById('resultado').style.backgroundImage = "url('mulher.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/mulher.png')";   
                     }
                     else if(idade>=0){
-                        document.getElementById('resultado').style.backgroundImage = "url('garota.png')";   
+                        document.getElementById('resultado').style.backgroundImage = "url('img/garota.png')";   
                     }
                     else
                     {
                         window.alert('Verificar se adicionou uma idade correta');
                     }
-                    document.getElementById('resultado-txt').innerHTML = `Detectado ${sexo} que tem ${idade} Anos.`;
+                    document.getElementById('resultado-txt').innerHTML = `Detectado Mulher que tem ${idade} Anos.`;
                 }
                 else {
                     window.alert('Digite os dados.')
                 }
 
-                document.getElementById('resultado-txt').innerHTML = document.getElementsByName('sexo')[0].value;
             }
     </script>
 </body>

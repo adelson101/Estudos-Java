@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* Configurações Gerais */
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            --CorPadrao: rgb(55, 182, 255);
+            --CorSecundaria: rgb(44, 160, 228);
+        }
+
+        body , html {
+            background-color: var(--CorPadrao);
+        }
+
+        /* Final Configurações Gerais */
+
+        /* Header */
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Final Header */
+
+        /* Section */
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 1.5rem 1.5rem;
+            width: 500px;
+            margin: auto;
+
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.233);
+            
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .Tela-Preta {
+            background-color: black;
+            height: 500px;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.295);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Final Section*/
+
+        /* Footer */
+
+        footer {
+            margin-top: 1rem;
+            color: white;
+            text-align: center;
+        }
+
+        /* Final Footer */
+
+    </style>
+
+</head>
+<body onload="TelaInicial()">
+    
+    <header>
+        <h1>Tabudada</h1>
+    </header>
+
+    <section>
+        <div class="Tela-Preta">
+            <div id="container_Titulo"></div>
+        </div>
+    </section>
+    
+    <footer>
+        &copy; VideoEmCurso
+    </footer>
+
+    <script src="game.js"></script>
+
+</body>
+</html>

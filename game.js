@@ -1,6 +1,6 @@
 
 
-function TelaInicial() { //Criar Tela Inicial
+function TelaInicial() { //Criar Tela Inicial - Criação do Titulo | Estilo do Titulo | Criação do Botão Jogar | estilo do Botão Jogar | Eventos do Botão Jogar
 
     var Titulo = document.createElement('h1');
     Titulo.innerText = 'JOGO DA FORCA';

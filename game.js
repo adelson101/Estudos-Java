@@ -47,6 +47,20 @@ function TelaDeEscolha() {
 function TelaDeGame(tipo){
     LimparTela();
 
+    let BotaoVoltar = document.createElement('div');
+    BotaoVoltar.innerHTML = 'VOLTAR';
+    BotaoVoltar.style.padding = '.5rem';
+    BotaoVoltar.style.width = '100px';
+    BotaoVoltar.style.textAlign = 'center';
+    BotaoVoltar.style.margin = 'auto';
+    BotaoVoltar.style.marginBottom = '1rem';
+    styleButton(BotaoVoltar);
+    CreateChild(BotaoVoltar);
+
+    BotaoVoltar.addEventListener("mouseup" , (clique) => {
+        TelaDeEscolha();
+    })
+
     let corpo = document.createElement('div'); //Corpo
     
     //Criar Estilos
@@ -118,9 +132,12 @@ function TelaDeGame(tipo){
     fetch("dados.json").then((response) => {
         response.json().then((dados) => {
            let corte;
+           let dica;
             switch (tipo) {
             case 0:
-                corte = dados.Animal[getRandomNum(dados.Animal.length)].nome.split("");
+                var sorteio = getRandomNum(dados.Animal.length);
+                corte = dados.Animal[sorteio].nome.split("");
+                dica = dados.Animal[sorteio].dica;
                 CreateElementsInput(corte);
             break;
 
@@ -143,19 +160,21 @@ function TelaDeGame(tipo){
 
            let botao = document.createElement('button');
            botao.innerText = 'VERIFICAR';
-           botao.style.borderRadius = '50px'
            botao.style.height = '50px';
            botao.style.width = '150px';
-           botao.style.border = 'none';
-           botao.style.fontFamily = 'Arial';
-           botao.style.fontWeight = 'bold';
-           botao.style.fontSize = '1.2rem';
-           botao.style.marginTop = '1rem';
            styleButton(botao);
+
+           let CreateDica = document.createElement('p');
+           CreateDica.style.color = 'green';
+           CreateDica.style.fontFamily = 'Arial';
+           CreateDica.style.fontWeight = 'bold';
+           CreateDica.innerHTML = `"${dica}"`;
+
+           document.getElementById('container_Titulo').appendChild(CreateDica);
            document.getElementById('container_Titulo').appendChild(botao);
+           
            let correto = new Array(corte.length).fill(false);
            let errado = 0;
-           console.log(corte)
            botao.addEventListener("mouseup", (clique) => {
             
                 for (let i = 0; i < corte.length; i++) {
@@ -220,6 +239,7 @@ function CreateElementsInput(corte) {
     divBase.style.display = 'flex';
     divBase.style.gap = '.8rem';
     divBase.style.marginTop = '1rem';
+    divBase.style.justifyContent = 'center';
     CreateChild(divBase);
 
     for (let i = 0; i < corte.length; i++) {

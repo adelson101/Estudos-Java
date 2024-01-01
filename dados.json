@@ -1,73 +1,93 @@
 {
             "Animal" : [
                 {
-                    "nome": "cavalo"
+                    "nome": "cavalo",
+                    "dica": "Animal usado em fazenda"
                 },
                 {
-                    "nome": "burro"
+                    "nome": "burro",
+                    "dica": "Animal usado na fazenda como puxador"
                 },
                 {
-                    "nome": "vaca"
+                    "nome": "vaca",
+                    "dica": "Animal de fazenda muito importante"
                 },
                 {
-                    "nome": "onça"
+                    "nome": "onça",
+                    "dica": "Animal selvagem simbolo do Brasil"
                 },
                 {
-                    "nome": "ovelha"
+                    "nome": "ovelha",
+                    "dica": "Animal que da sono"
                 }
             ], 
 
             "Jogo" : [
                 {
-                    "nome": "Dota"
+                    "nome": "Dota",
+                    "dica": "Jogo moba popular"
                 },
                 {
-                    "nome": "gta"
+                    "nome": "gta",
+                    "dica": "Jogo mais famoso do mundo"
                 },
                 {
-                    "nome": "tetris"
+                    "nome": "tetris",
+                    "dica": "Jogo mais vendido no mundo"
                 },
                 {
-                    "nome": "minecraft"
+                    "nome": "minecraft",
+                    "dica": "Jogo popular pela criatividade"
                 },
                 {
-                    "nome": "roblox"
+                    "nome": "roblox",
+                    "dica": "Jogo popular entre as crianças"
                 }
             ], 
 
             "Filme" : [
                 {
-                    "nome": "avatar"
+                    "nome": "avatar",
+                    "dica": "Filme que revolucionol o 3d"
                 },
                 {
-                    "nome": "aquaman"
+                    "nome": "aquaman",
+                    "dica": "Melhor Filme da Dc"
                 },
                 {
-                    "nome": "alemão"
+                    "nome": "alemão",
+                    "dica": "Filme que fala da segunda guerra"
                 },
                 {
-                    "nome": "lutador"
+                    "nome": "lutador",
+                    "dica": "Filme de ação famoso de 2008"
                 },
                 {
-                    "nome": "viagem"
+                    "nome": "viagem",
+                    "dica": "filme de viagem no tempo"
                 }
             ], 
 
             "Futebol" : [
                 {
-                    "nome": "flamengo"
+                    "nome": "flamengo",
+                    "dica": "Time carioca que possui muitos apelidos"
                 },
                 {
-                    "nome": "vasco"
+                    "nome": "vasco",
+                    "dica": "Time carioca famoso por memes"
                 },
                 {
-                    "nome": "palmeiras"
+                    "nome": "palmeiras",
+                    "dica": "Time Paulista com maior quantidade de titulos no Brasil"
                 },
                 {
-                    "nome": "cruzeiro"
+                    "nome": "cruzeiro",
+                    "dica": "time de BH"
                 },
                 {
-                    "nome": "santos"
+                    "nome": "santos",
+                    "dica": "Time famoso por ser time favorito de jogador famoso"
                 }
             ]
     

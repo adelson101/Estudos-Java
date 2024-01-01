@@ -1,5 +1,3 @@
-
-
 function TelaInicial() { //Criar Tela Inicial - Criação do Titulo | Estilo do Titulo | Criação do Botão Jogar | estilo do Botão Jogar | Eventos do Botão Jogar
 
     var Titulo = document.createElement('h1');
@@ -11,7 +9,7 @@ function TelaInicial() { //Criar Tela Inicial - Criação do Titulo | Estilo do 
     botao.innerText = 'JOGAR';
     botao.style.padding = '.7rem 4rem';
 
-    styleButton(botao);
+    styleButton(botao); 
 
     CreateChild(botao);
 
@@ -151,12 +149,13 @@ function TelaDeGame(tipo){ //Tela de Game
             //Sorteia o numero do ID do animal que sera jogado
             let corte;
             let dica;
+
             switch (tipo) {
             case 0:
-                var sorteio = getRandomNum(dados.Animal.length);    //Sorteia o Animal
-                corte = dados.Animal[sorteio].nome.split("");       //Divide o nome em array
-                dica = dados.Animal[sorteio].dica;                  //Pega a dica do Json
-                CreateElementsInput(corte);                         //Cria Elemento Inputs com base no tamanho do array
+                    var sorteio = getRandomNum(dados.Animal.length);    //Sorteia o Animal
+                    corte = dados.Animal[sorteio].nome.split("");       //Divide o nome em array
+                    dica = dados.Animal[sorteio].dica;                  //Pega a dica do Json
+                    CreateElementsInput(corte);                         //Cria Elemento Inputs com base no tamanho do array
             break;
 
             case 1:
@@ -199,7 +198,7 @@ function TelaDeGame(tipo){ //Tela de Game
            //Cria os Elemenetos
            document.getElementById('container_Titulo').appendChild(CreateDica);
            document.getElementById('container_Titulo').appendChild(botao);
-           
+           console.log(corte.length);
            //Guarda os Acertos e Erros do usuario
            let correto = new Array(corte.length).fill(false);   //Cria um Array da quantidade da palavra e marca os true e false guardado no id da caixa do input
            let errado = 0;

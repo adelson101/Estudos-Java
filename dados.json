@@ -1,0 +1,74 @@
+{
+            "Animal" : [
+                {
+                    "nome": "cavalo"
+                },
+                {
+                    "nome": "burro"
+                },
+                {
+                    "nome": "vaca"
+                },
+                {
+                    "nome": "onça"
+                },
+                {
+                    "nome": "ovelha"
+                }
+            ], 
+
+            "Jogo" : [
+                {
+                    "nome": "Dota"
+                },
+                {
+                    "nome": "gta"
+                },
+                {
+                    "nome": "tetris"
+                },
+                {
+                    "nome": "minecraft"
+                },
+                {
+                    "nome": "roblox"
+                }
+            ], 
+
+            "Filme" : [
+                {
+                    "nome": "avatar"
+                },
+                {
+                    "nome": "aquaman"
+                },
+                {
+                    "nome": "alemão"
+                },
+                {
+                    "nome": "lutador"
+                },
+                {
+                    "nome": "viagem"
+                }
+            ], 
+
+            "Futebol" : [
+                {
+                    "nome": "flamengo"
+                },
+                {
+                    "nome": "vasco"
+                },
+                {
+                    "nome": "palmeiras"
+                },
+                {
+                    "nome": "cruzeiro"
+                },
+                {
+                    "nome": "santos"
+                }
+            ]
+    
+}

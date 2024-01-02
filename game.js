@@ -221,7 +221,7 @@ function TelaDeGame(tipo){ //Tela de Game
                         document.getElementById(`Caixa-${i}`).style.backgroundColor = 'red';
                         document.getElementById(`Caixa-${i}`).style.transition = 'background-color 0.5s';
                         document.getElementById(`Caixa-${i}`).value = '';
-
+                        document.getElementById(`Caixa-${i}`).focus();
                         //Marca pela quantidade de erros a parte que o personagem vai perdendo
                         switch (errado) {
                             case 1:

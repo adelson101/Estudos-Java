@@ -35,9 +35,6 @@
         /* Section */
 
         section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
 
             padding: 1.5rem 1.5rem;
             width: 600px;
@@ -51,28 +48,19 @@
             font-size: 1.1rem;
         }
 
-        .Tela-Preta {
-            background-color: black;
-            height: 600px;
-            width: 600px;
-            border-radius: 10px;
-            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.295);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+        section div > p {
+            display: inline;
         }
 
-        #container_Titulo .button_container {
-            height: 200px;
+        section div {
+            margin-bottom: 1rem;
+        }
+
+        select {
             width: 200px;
-            background-color: aliceblue;
-
-            font-size: 2rem;
-            font-weight: bold;
-            margin: .5rem;
-        }
+            display: block;
+            margin: auto;        
+            }
 
         /* Final Section*/
 
@@ -89,23 +77,31 @@
     </style>
 
 </head>
-<body onload="TelaInicial()">
+<body>
     
     <header>
-        <h1>JOGO DA FORCA</h1>
+        <h1>ANALISE DE NUMEROS</h1>
     </header>
 
     <section>
-        <div class="Tela-Preta">
-            <div id="container_Titulo"></div>
+        <div>
+        <p>
+            <label for="inumeros">Número (entre 1 e 100): 
+                <input type="number" name="numeros" id="inumeros" min="0" max="0">
+            </label>
+        </p>
+        <input type="button" value="Adicionar" onclick="Adicionar()">
         </div>
+        <select name="valores" id="ivalores" multiple size="6"></select>
+        <input type="button" value="finalizar" onclick="finalizar()">
+        <p id="resultados"></p>
     </section>
     
     <footer>
         &copy; VideoEmCurso
     </footer>
 
-    <script src="game.js"></script>
+    <script src="ex0002.js"></script>
 
 </body>
 </html>
